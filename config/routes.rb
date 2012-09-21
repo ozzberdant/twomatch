@@ -1,4 +1,8 @@
 Twomatch::Application.routes.draw do
+  resources :instalacions
+
+  resources :recintos
+
   get "welcome/index"
 
   # The priority is based upon order of creation:
