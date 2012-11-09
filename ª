@@ -1,0 +1,6 @@
+class Comercio < ActiveRecord::Base
+  attr_accessible :ciudad_id, :nombre, :rubro_id
+  belongs_to :rubro
+  belongs_to :ciudad
+ 
+end

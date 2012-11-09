@@ -1,0 +1,17 @@
+<div >
+    <% if @rubro !=nil  %>
+      <h3><%= @rubro.nombre %></h3>
+
+	<table>
+          <% @rubro.comercios.each do |comercio| %>
+          <tr>
+          <td><%= comercio.nombre %></td>
+          <td><%= link_to 'Show', comercio %></td>
+          </tr>
+        <% end %>
+        </table>	
+
+    <% else%>
+     <h3><%= @message %></h3>
+   <% end %>
+</div>

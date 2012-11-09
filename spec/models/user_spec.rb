@@ -25,6 +25,7 @@ describe User do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
   it { should be_valid }
   it { should respond_to(:authenticate) }
 
@@ -32,6 +33,12 @@ describe User do
     before { @user.name = " " }
     it { should_not be_valid }
   end
+  
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
+  
   describe "when email is not present" do
     before { @user.email = " " }
     it { should_not be_valid }
@@ -89,8 +96,8 @@ describe User do
   end
 
   describe "return value of authenticate method" do
-  before { @user.save }
-  let(:found_user) { User.find_by_email(@user.email) }
+    before { @user.save }
+    let(:found_user) { User.find_by_email(@user.email) }
 
   describe "with valid password" do
     it { should == found_user.authenticate(@user.password) }
@@ -108,6 +115,4 @@ describe User do
     before { @user.password = @user.password_confirmation = "a" * 5 }
     it { should be_invalid }
   end
-
-
 end

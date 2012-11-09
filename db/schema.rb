@@ -11,7 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002040724) do
+ActiveRecord::Schema.define(:version => 20121107024520) do
+
+  create_table "ciudads", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "region_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ciudads", ["region_id", "created_at"], :name => "index_ciudads_on_region_id_and_created_at"
+
+  create_table "comercios", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "rubro_id"
+    t.integer  "ciudad_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "descripcion"
+    t.string   "direccion"
+    t.string   "latitud"
+    t.string   "longitud"
+    t.string   "telefono"
+    t.string   "email"
+    t.integer  "user_id"
+    t.string   "cuentaCorriente"
+    t.string   "identificadorComercio"
+    t.boolean  "estado"
+    t.string   "rut"
+    t.string   "logo"
+  end
 
   create_table "instalacions", :force => true do |t|
     t.string   "nombre"
@@ -27,14 +56,28 @@ ActiveRecord::Schema.define(:version => 20121002040724) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "regions", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "rubros", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

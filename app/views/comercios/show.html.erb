@@ -1,0 +1,25 @@
+<div >
+    <% if @comercio !=nil  %>
+      <h2><%= @comercio.nombre %></h2>
+      <span>
+      <h4><%= @comercio.rubro.nombre %></h4> 
+      <h4><%= @comercio.ciudad.nombre %></h4>
+      <h4><%= @comercio.descripcion %></h4> 
+      <h4><%= @comercio.direccion %></h4>
+      <h4><%= @comercio.latitud %></h4> 
+      <h4><%= @comercio.longitud %></h4>
+      <h4><%= @comercio.telefono %></h4>
+      <h4><%= @comercio.email %></h4>
+      <h4><%= @comercio.user.name %></h4>
+      <h4><%= @comercio.cuentaCorriente %></h4>
+      <h4><%= @comercio.identificadorComercio %></h4>
+      <h4><%= @comercio.estado %></h4>
+      <h4><%= @comercio.rut %></h4>
+      <h4><%= @comercio.logo %></h4>
+     </span>     
+    <% else%>
+     <h3><%= @message %></h3>
+   <% end %>
+</div>
+
+

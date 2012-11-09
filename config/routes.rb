@@ -1,17 +1,36 @@
 Twomatch::Application.routes.draw do
 
+  #get "comercios/new"
+
+  #get "comercios/index"
+
+  #get "comercios/show"
+
+  #get "rubros/new"
+
   root to: 'static_pages#home'
 
-  match '/signup',  to: 'users#new'
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   match '/signup',  to: 'users#new' 
- 
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
+
+  match '/regiones', to: 'regions#index'
+  match '/rubros', to: 'rubros#index'
+  match '/comercios', to: 'rubros#index'  
+
   resources :instalacions
   resources :recintos
   resources :users
-
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :ciudads
+  resources :regions   
+  resources :comercios
+  resources :rubros
+  
   get "welcome/index"
 
   # The priority is based upon order of creation:
