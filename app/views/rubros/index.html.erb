@@ -1,14 +1,86 @@
-<h1>Rubros</h1>
+<div>
+<h2>Selecciona lo que quieres reservar.</h2>
+</div>
+<div>
+  <table class="table_rubros_leve_1">
+    <tr>
+      <td>
+        <div>
+          <table class="table_rubros_leve_2">
+            <tr>
+              <td>
+                <h3>
+                    <%= link_to @canchas.nombre, :action => 'show', :id => @canchas.id %>
+                </h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_img">
+                <%= link_to image_tag(@canchas.logo, :alt => "Canchas de futbol, Babyfutbol y futbolito"), :action => 'show', :id => @canchas.id %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= @canchas.descripcion %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div>
+          <table class="table_rubros_leve_2">
+            <tr>
+              <td>
+                <h3>
+                    <%= link_to @salasDeEnsayo.nombre, :action => 'show', :id => @salasDeEnsayo.id %>
+                </h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_img">
+                <%= link_to image_tag(@salasDeEnsayo.logo, :alt => "Salas de ensayo para que ensayes con tu banda"), :action => 'show', :id => @salasDeEnsayo.id %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= @salasDeEnsayo.descripcion %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div>
+          <table class="table_rubros_leve_2">
+            <tr>
+              <td>
+                <h3>
+                    <%= link_to @hostales.nombre, :action => 'show', :id => @hostales.id %>
+                </h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_img">
+                <%= link_to image_tag(@hostales.logo, :alt => "Hostales si viajas y necesitas donde quedarte"), :action => 'show', :id => @hostales.id %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= @hostales.descripcion %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div>
+          Pronto... :)
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
 
-<table>
-  <tr>
-    <th>Rubro</th>
-  </tr>
 
-<% @rubros.each do |rubro| %>
-  <tr>
-    <td><%= rubro.nombre %></td>
-    <td><%= link_to 'Show', rubro %></td>
- </tr>
-<% end %>
-</table>
+

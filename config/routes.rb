@@ -20,7 +20,10 @@ Twomatch::Application.routes.draw do
 
   match '/regiones', to: 'regions#index'
   match '/rubros', to: 'rubros#index'
-  match '/comercios', to: 'rubros#index'  
+  match '/comercios', to: 'rubros#index'
+
+  match '/comercios', to: 'rubros#index'
+
 
   resources :instalacions
   resources :recintos
@@ -32,6 +35,8 @@ Twomatch::Application.routes.draw do
   resources :rubros
   
   get "welcome/index"
+
+  post "/dynamic_ciudads/:id" => "rubros#dynamic_ciudads"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

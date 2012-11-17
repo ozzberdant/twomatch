@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107024520) do
+ActiveRecord::Schema.define(:version => 20121117031057) do
 
   create_table "ciudads", :force => true do |t|
     t.string   "nombre"
@@ -40,6 +40,20 @@ ActiveRecord::Schema.define(:version => 20121107024520) do
     t.boolean  "estado"
     t.string   "rut"
     t.string   "logo"
+    t.integer  "region_id"
+  end
+
+  create_table "estado_recursos", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "estado_reservas", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "instalacions", :force => true do |t|
@@ -49,11 +63,32 @@ ActiveRecord::Schema.define(:version => 20121107024520) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "rango_reservas", :force => true do |t|
+    t.string   "nombre"
+    t.string   "inicio"
+    t.string   "fin"
+    t.integer  "tipoReserva_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "recintos", :force => true do |t|
     t.string   "nombre"
     t.string   "direccion"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "recursos", :force => true do |t|
+    t.string   "nombre"
+    t.string   "precio"
+    t.string   "precioReserva"
+    t.string   "descripcion"
+    t.integer  "comercio_id"
+    t.integer  "tipoReserva_id"
+    t.integer  "estadoRecurso_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "regions", :force => true do |t|
@@ -62,10 +97,30 @@ ActiveRecord::Schema.define(:version => 20121107024520) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "reservas", :force => true do |t|
+    t.string   "descripcion"
+    t.integer  "recurso_id"
+    t.integer  "rangoReserva_id"
+    t.integer  "estadoReserva_id"
+    t.date     "fechaReserva"
+    t.datetime "fechaTransaccion"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "rubros", :force => true do |t|
     t.string   "nombre"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "descripcion"
+    t.string   "logo"
+  end
+
+  create_table "tipo_reservas", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

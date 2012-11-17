@@ -1,17 +1,34 @@
-<div >
-    <% if @rubro !=nil  %>
-      <h3><%= @rubro.nombre %></h3>
-
-	<table>
-          <% @rubro.comercios.each do |comercio| %>
-          <tr>
-          <td><%= comercio.nombre %></td>
-          <td><%= link_to 'Show', comercio %></td>
-          </tr>
-        <% end %>
-        </table>	
-
-    <% else%>
-     <h3><%= @message %></h3>
-   <% end %>
+<div>
+  <h2>Escoge el lugar...</h2>
 </div>
+<div>
+  <table class="table_rubros_leve_1">
+    <tr>
+      <td>
+        <div>
+          <table class="table_rubros_leve_2">
+            <tr>
+              <td>
+                <div class="field">
+
+                  <script type="text/javascript">
+                      jQuery(document).ready(function() {
+
+                          jQuery('#comercio_ciudad_id').html("<option value=''>Select ciudad</option>");
+                      });
+                  </script>
+                  <%= render 'form' %>
+                </div>
+                <div class="field">
+                </div>
+                <div class="actions">
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+

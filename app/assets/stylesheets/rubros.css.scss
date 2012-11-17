@@ -1,3 +1,40 @@
 // Place all the styles related to the Rubros controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.table_rubros_leve_1 {
+  border: 0px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  height: auto !important;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.table_rubros_leve_2 {
+  border: 0px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  height: auto !important;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.table_rubros_leve_1 tr td {
+
+  width: 25%;
+  vertical-align:top;
+}
+
+.table_rubros_leve_1 tr td.td_img {
+
+  height: 155px;
+}
+
+.table_rubros_leve_1 tr td h3{
+  font-size: 20px;
+}
+
+.table_rubros_leve_1 tr td h3 a{
+  color: #cd5c5c;
+  text-decoration:none;
+}

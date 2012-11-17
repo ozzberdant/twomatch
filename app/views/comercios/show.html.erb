@@ -16,10 +16,31 @@
       <h4><%= @comercio.estado %></h4>
       <h4><%= @comercio.rut %></h4>
       <h4><%= @comercio.logo %></h4>
-     </span>     
+
+
+
+
+
+        <% if @comercio.recursos.any? %>
+        <% @comercio.recursos.each do |recurso| %>
+          <tr>
+            <td><%= recurso.nombre %></td>
+            <td><%= recurso.descripcion %></td>
+            <td><%= recurso.precio %></td>
+            <td><%= recurso.precioReserva %></td> 
+            <td><%= recurso.tipoReserva.descripcion %></td>
+            <td><%= recurso.estadoRecurso.nombre %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </span>     
     <% else%>
      <h3><%= @message %></h3>
    <% end %>
+
+  <%= select('selected_payment','id',@recursos.map{|u|[u.nombre,u.descripcion]})%>
+
+
 </div>
 
 

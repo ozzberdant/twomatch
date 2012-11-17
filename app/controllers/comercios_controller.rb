@@ -5,6 +5,7 @@ class ComerciosController < ApplicationController
 def show
     begin
       @comercio = Comercio.find(params[:id])
+      @recursos = @comercio.recursos
       rescue ActiveRecord::RecordNotFound
       @message="No encontramos los que buscas"
     end

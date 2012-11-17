@@ -1,13 +1,90 @@
-<div class="center hero-unit">
-  <h1>Welcome to the Sample App</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+<div class="hero_unit_extend">
+  <h1>twomatch.cl</h1>
+  <h2>Tú sitio de reservas online.</h2>
+  <!--%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %-->
 </div>
 
-<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<!-- Despliega los rubros-->
+<div>
+  <h2 class="div_h2">Selecciona lo que quieres reservar.</h2>
+</div>
+<div>
+  <table class="table_rubros_leve_1">
+    <tr>
+      <td>
+        <div>
+          <table class="table_rubros_leve_2">
+            <tr>
+              <td>
+                <h3>
+                  <%= link_to @canchas.nombre, :action => 'show', :id => @canchas.id, :controller => "rubros" %>
+                </h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_img">
+                <%= link_to image_tag(@canchas.logo, :alt => "Canchas de futbol, Babyfutbol y futbolito"), :action => 'show', :id => @canchas.id, :controller => "rubros" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= @canchas.descripcion %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div>
+          <table class="table_rubros_leve_2">
+            <tr>
+              <td>
+                <h3>
+                  <%= link_to @salasDeEnsayo.nombre, :action => 'show', :id => @salasDeEnsayo.id, :controller => "rubros" %>
+                </h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_img">
+                <%= link_to image_tag(@salasDeEnsayo.logo, :alt => "Salas de ensayo para que ensayes con tu banda"), :action => 'show', :id => @salasDeEnsayo.id, :controller => "rubros" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= @salasDeEnsayo.descripcion %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div>
+          <table class="table_rubros_leve_2">
+            <tr>
+              <td>
+                <h3>
+                  <%= link_to @hostales.nombre, :action => 'show', :id => @hostales.id, :controller => "rubros" %>
+                </h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_img">
+                <%= link_to image_tag(@hostales.logo, :alt => "Hostales si viajas y necesitas donde quedarte"), :action => 'show', :id => @hostales.id, :controller => "rubros" %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= @hostales.descripcion %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div>
+          Pronto... :)
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
