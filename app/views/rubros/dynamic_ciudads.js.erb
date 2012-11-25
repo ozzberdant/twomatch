@@ -1,10 +1,8 @@
-$('#comercio_ciudad_id').empty();
+$('#busqueda_comercios_form_ciudad_id').empty();
 <% for ciudad in @ciudads %>
 
 
-// alert(<%= ciudad.id %>);
-
-$('#comercio_ciudad_id').append($("<option></option>").attr("value",<%= ciudad.id %>).text('<%= ciudad.nombre %>'));
+$('#busqueda_comercios_form_ciudad_id').append($("<option></option>").attr("value",<%= ciudad.id %>).text('<%= ciudad.nombre %>'));
 
 
 <% end %>

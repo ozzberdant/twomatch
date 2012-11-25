@@ -1,10 +1,10 @@
-<%= form_for(@comercio) do |f| %>
-    <% if @comercio.errors.any? %>
+<%=form_for @busquedaComerciosForm, :url => busqueda_comercios_forms_path, :html => {:method => :post} do |f| %>
+    <% if @busquedaComerciosForm.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@comercio.errors.count, "error") %> prohibited this regform from being saved:</h2>
+          <h2><%= pluralize(@busquedaComerciosForm.errors.count, "error") %> prohibited this regform from being saved:</h2>
 
           <ul>
-            <% @comercio.errors.full_messages.each do |msg| %>
+            <% @busquedaComerciosForm.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
             <% end %>
           </ul>
@@ -12,16 +12,56 @@
     <% end %>
 
 
-    <div class="field">
-      <%= f.label :region_id %><br />
-      <%= f.collection_select :region_id, Region.all, :id, :nombre, :prompt => 'Select Region' %>
-    </div>
-    <div class="field">
-      <%= f.label :ciudad_id %><br />
-      <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, :prompt => 'Select Ciudad' %>
+
+    <div>
+        <table class="table_busqueda_level_1">
+          <tr>
+            <td>
+
+                <table class="table_busqueda_level_2">
+                  <tr>
+                    <td>
+                      <h3>
+                        <%= link_to @rubro.nombre, :action => 'show', :id => @rubro.id %>
+                      </h3>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="td_img">
+                      <%= link_to image_tag(@rubro.logo, :alt => @rubro.descripcion), :action => 'show', :id => @rubro.id %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <%= @rubro.descripcion %>
+                    </td>
+                  </tr>
+                </table>
+            </td>
+            <td>
+              <table class="table_busqueda_level_2">
+                <tr>
+                  <td class="td_left">
+                    <div class="field">
+                      <%= f.collection_select :region_id, Region.all, :id, :nombre, :prompt => 'Selecciona la Region' %>
+                    </div>
+                    <div class="field">
+                      <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, :prompt => 'Selecciona la Ciudad' %>
+                    </div>
+                    <div class="field">
+                      <%= f.text_field :fechaBusqueda  %>
+                      <%= f.hidden_field :id, :value=>@rubro.id%>
+                    </div>
+
+                    <div class="actions">
+                      <%= f.submit "Buscar"%>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
-    </div>
 <% end %>

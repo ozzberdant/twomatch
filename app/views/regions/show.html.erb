@@ -1,15 +1,13 @@
 <div class="span8">
-    <% if @region.ciudads.any? %>
+  <% if @region.ciudads.any? %>
       <h3>Ciudades (<%= @region.ciudads.count %>)</h3>
       <ol class="ciudads">
-    <% @region.ciudads.each do |ciudad| %>
-     <tr>
-     <td><%= ciudad.nombre %></td>
-     <td><%= link_to 'Show', ciudad %></td>
-    </tr>
-   <% end %>
-  
-
-    <% end %>
-  </div>
-
+        <% @region.ciudads.each do |ciudad| %>
+            <tr>
+              <td><%= ciudad.nombre %></td>
+              <td><%= link_to 'Show', ciudad %></td>
+            </tr>
+        <% end %>
+       </ol>
+  <% end %>
+</div>

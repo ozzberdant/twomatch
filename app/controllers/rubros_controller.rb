@@ -12,11 +12,12 @@ class RubrosController < ApplicationController
   end
 
   def show
-    @comercio = Comercio.new
+    @rubro = Rubro.find(params[:id])
+    @busquedaComerciosForm = BusquedaComerciosForm.new
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @comercio }
+      format.xml  { render :xml => @busquedaComerciosForm }
   end
 
   end

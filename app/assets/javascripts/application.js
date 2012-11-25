@@ -10,20 +10,20 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+//=require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+//= require jquery.ui.datepicker
 
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
 jQuery(document).ready(function() {
 
-//    jQuery('#regform_district_id').html("<option value=''>Select District</option>");
-    jQuery('#comercio_region_id').change(function() {
+    jQuery('#busqueda_comercios_form_region_id').change(function() {
 
-        var data=$('#comercio_region_id').val();
+        var data=$('#busqueda_comercios_form_region_id').val();
         $.ajax({
 
             type: "POST",
@@ -48,4 +48,9 @@ jQuery(document).ready(function() {
 
         });
     });
+});
+
+jQuery(document).ready(function() {
+    jQuery('#busqueda_comercios_form_fechaBusqueda').datepicker({format: 'yyyy-mm-dd', weekStart: 1});
+    jQuery('#busqueda_comercios_form_fechaBusqueda').datepicker("setDate", new Date());
 });

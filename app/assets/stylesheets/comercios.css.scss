@@ -1,3 +1,48 @@
 // Place all the styles related to the Comercios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logo_index_comercio {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 4px;
+  clear: both;
+  float: left;
+}
+.container_maps tbody tr td{
+  vertical-align: top;
+  padding: 5px;
+  width: 25%;
+  
+}
+.div_listado_comercios{
+  border-bottom-color: #ccc;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-top-color: #ccc;
+  border-top-style: solid;
+  border-top-width: 1px;
+  text-align: center;
+}
+.div_listado_comercios a {
+  text-decoration: none;
+  color:#333;
+} 
+
+
+
+
+
+.th_comercios{
+  padding: 10px;
+  font-size: 20px;
+  color: indianRed;
+  font-family: inherit; 
+}
+
+.container_maps{
+
+    border-width: 0px;
+    border-style: solid;
+    border-color: #ccc;
+}

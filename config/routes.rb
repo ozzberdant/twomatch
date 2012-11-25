@@ -1,13 +1,5 @@
 Twomatch::Application.routes.draw do
 
-  #get "comercios/new"
-
-  #get "comercios/index"
-
-  #get "comercios/show"
-
-  #get "rubros/new"
-
   root to: 'static_pages#home'
 
   match '/help',    to: 'static_pages#help'
@@ -20,9 +12,9 @@ Twomatch::Application.routes.draw do
 
   match '/regiones', to: 'regions#index'
   match '/rubros', to: 'rubros#index'
+  match '/comercios', to: 'comercios#index'
   match '/comercios', to: 'rubros#index'
-
-  match '/comercios', to: 'rubros#index'
+  match '/busqueda_comercios_forms', to: 'comercios#show_by_ciudad_and_rubro'
 
 
   resources :instalacions
@@ -33,7 +25,8 @@ Twomatch::Application.routes.draw do
   resources :regions   
   resources :comercios
   resources :rubros
-  
+  resources :busqueda_comercios_forms
+
   get "welcome/index"
 
   post "/dynamic_ciudads/:id" => "rubros#dynamic_ciudads"

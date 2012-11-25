@@ -1,0 +1,28 @@
+<table class="container_maps">
+  <tr>
+    <th class="th_comercios" colspan="2"><%= @rubro.nombre %></th>
+  </tr>
+  <% if @comercios !=nil && @comercios.any? %>
+          <tr>
+            <td>
+             <% @comercios.each do |comercio| %>
+		<div class="div_listado_comercios">
+                <%= link_to image_tag(comercio.logo, :alt => comercio.logo, :class=>"logo_index_comercio"), :action => 'show', :id =>comercio %>
+		<%= link_to comercio.nombre , comercio %></br>
+                <%= comercio.direccion %>, <%= comercio.ciudad.nombre %>
+              </div>
+	     <% end %>		
+            </td>
+            <td>
+              <div>
+                <%= gmaps({
+                                  "map_options" => {"auto_zoom" => false, "zoom" => 10 },
+                                  "markers" => {"data" => @json }
+                          })
+                %>
+              </div>
+            </td>
+          </tr>
+  <% end %>
+</table>
+

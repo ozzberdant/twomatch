@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117031057) do
+ActiveRecord::Schema.define(:version => 20121122024707) do
+
+  create_table "busqueda_comercios_forms", :force => true do |t|
+    t.integer  "region_id"
+    t.integer  "ciudad_id"
+    t.string   "fechaBusqueda"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "ciudads", :force => true do |t|
     t.string   "nombre"
@@ -41,6 +49,9 @@ ActiveRecord::Schema.define(:version => 20121117031057) do
     t.string   "rut"
     t.string   "logo"
     t.integer  "region_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.float    "gmaps"
   end
 
   create_table "estado_recursos", :force => true do |t|
