@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122024707) do
+ActiveRecord::Schema.define(:version => 20121203032009) do
 
   create_table "busqueda_comercios_forms", :force => true do |t|
     t.integer  "region_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20121122024707) do
     t.string   "fechaBusqueda"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "hora"
   end
 
   create_table "ciudads", :force => true do |t|
@@ -65,6 +66,13 @@ ActiveRecord::Schema.define(:version => 20121122024707) do
     t.string   "nombre"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "horas", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "instalacions", :force => true do |t|
@@ -117,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20121122024707) do
     t.datetime "fechaTransaccion"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "hora_id"
   end
 
   create_table "rubros", :force => true do |t|

@@ -43,16 +43,18 @@
                 <tr>
                   <td class="td_left">
                     <div class="field">
-                      <%= f.collection_select :region_id, Region.all, :id, :nombre, :prompt => 'Selecciona la Region' %>
+                      <%= f.collection_select :region_id, Region.all, :id, :nombre, :prompt => 'Selecciona la Region'%>
                     </div>
                     <div class="field">
-                      <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, :prompt => 'Selecciona la Ciudad' %>
+                      <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, :prompt => 'Selecciona la Ciudad'%>
                     </div>
-                    <div class="field">
+		     <div class="field">
                       <%= f.text_field :fechaBusqueda  %>
                       <%= f.hidden_field :id, :value=>@rubro.id%>
                     </div>
-
+		    <div class="field">
+                      <%= f.select :hora, @horas, :prompt => 'Selecciona la Hora' %>
+                    </div>
                     <div class="actions">
                       <%= f.submit "Buscar"%>
                     </div>

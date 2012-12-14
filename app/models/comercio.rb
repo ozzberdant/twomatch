@@ -11,7 +11,7 @@ class Comercio < ActiveRecord::Base
   def gmaps4rails_infowindow
    "<center>
        #{self.nombre} </br> #{self.direccion}
-       <a href='/comercios/#{self.id}'>
+       <a href='/comercios_by_reserva?id=#{self.id}'>
        Ir =>
        </a> 
 
@@ -22,6 +22,16 @@ class Comercio < ActiveRecord::Base
   
   def gmaps4rails_title
   "#{self.nombre}"
+  end
+
+
+  def tieneRecursosDisponibles(fechaBusqueda, hora)
+	self.recursos.each do |recurso|
+		if(recurso.tieneReservasDisponibles(fechaBusqueda, hora)==true)
+			return self	
+		end	
+	end
+	return nil
   end
 
 end

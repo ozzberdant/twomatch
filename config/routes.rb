@@ -15,7 +15,11 @@ Twomatch::Application.routes.draw do
   match '/comercios', to: 'comercios#index'
   match '/comercios', to: 'rubros#index'
   match '/busqueda_comercios_forms', to: 'comercios#show_by_ciudad_and_rubro'
+  match '/comercios_by_reserva', to: 'comercios#comercios_by_reserva'
+ 
+ 
 
+ 
 
   resources :instalacions
   resources :recintos

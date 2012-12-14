@@ -1,0 +1,18 @@
+<% provide(:title, @comercio.nombre) %>
+<% if @comercio !=nil  %>
+	<h2><%=@comercio.rubro.nombre+" - "+@comercio.nombre%></h2>
+
+	<div class="row">
+ 		<div class="span6 offset3">
+ 		</div>
+	</div>
+
+<% end %>
+
+
+
+
+  <%= select('selected_payment','id',@reservasDisponiblesByRecurso.map{|u|[u.recurso.nombre + u.descripcion, u.descripcion]})%>
+
+
+

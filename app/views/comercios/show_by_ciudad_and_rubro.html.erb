@@ -7,9 +7,10 @@
             <td>
              <% @comercios.each do |comercio| %>
 		<div class="div_listado_comercios">
-                <%= link_to image_tag(comercio.logo, :alt => comercio.logo, :class=>"logo_index_comercio"), :action => 'show', :id =>comercio %>
-		<%= link_to comercio.nombre , comercio %></br>
+                <%= link_to image_tag(comercio.logo, :alt => comercio.logo, :class=>"logo_index_comercio"), :action => 'comercios_by_reserva', :id =>comercio %>
+		<%= link_to comercio.nombre , :action => 'comercios_by_reserva', :id =>comercio  %></br>
                 <%= comercio.direccion %>, <%= comercio.ciudad.nombre %>
+		
               </div>
 	     <% end %>		
             </td>
@@ -24,5 +25,6 @@
             </td>
           </tr>
   <% end %>
+ 
 </table>
 
