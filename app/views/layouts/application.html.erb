@@ -5,8 +5,15 @@
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag 'gmaps4rails' %>
+    
+    <%= stylesheet_link_tag "foundation" %>
+    <%= javascript_include_tag "foundation"  %>
 
     <%= csrf_meta_tags %>
+    
+    <!--  Place in <head> to set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <%= render 'layouts/shim' %>    
   </head>
   <body>

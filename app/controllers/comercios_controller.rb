@@ -53,7 +53,7 @@ class ComerciosController < ApplicationController
 		puts session[:horaBusqueda] 
 		@comercio = Comercio.find(params[:id])
       		@recursos = @comercio.recursos
-
+		@json =  @comercio.to_gmaps4rails
 		@reservasDisponiblesByRecurso = []
 	
 		@recursos.each do |recurso|

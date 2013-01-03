@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203032009) do
+ActiveRecord::Schema.define(:version => 20121229160634) do
 
   create_table "busqueda_comercios_forms", :force => true do |t|
     t.integer  "region_id"
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(:version => 20121203032009) do
   create_table "horas", :force => true do |t|
     t.string   "nombre"
     t.string   "descripcion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "imagen_comercios", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.integer  "comercio_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

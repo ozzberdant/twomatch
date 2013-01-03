@@ -6,6 +6,7 @@ class Comercio < ActiveRecord::Base
   belongs_to :user
   has_many :recursos
   belongs_to :region
+  has_many :imagen_comercios
 
 
   def gmaps4rails_infowindow

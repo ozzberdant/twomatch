@@ -84,7 +84,7 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  margin-top: 25px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
@@ -186,6 +186,13 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
+.select_reserva{
+width: 100%;
+
+
+
+}
+
 .input_sign {
   border: 1px solid #bbb;
   width: 100%;
@@ -236,4 +243,6 @@ input, textarea, select, .uneditable-input {
   font-size: 18px;
 }
 
-
+.label_reserva{
+	color: darkRed;
+}

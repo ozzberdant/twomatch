@@ -6,13 +6,113 @@
  		<div class="span6 offset3">
  		</div>
 	</div>
+<% end %>
 
+
+
+<table class="tabla_reserva">
+	<tbody>
+	<tr>
+	<td class="td_izquierda">
+	<div id="featured" >
+		
+	<% @comercio.imagen_comercios.each do |imagen| %>
+             <img src="assets/orbit/<%= imagen.nombre %>" />
+        <% end %>
+
+
+	</div>
+	</td>
+	<td class="derecha">
+		<%= gmaps({
+                                  "map_options" => {"auto_zoom" => false, "zoom" => 10, :container_class => "map_container_comercio", :class => "gmaps4rails_map_comercio" },
+                                  "markers" => {"data" => @json }
+                          })
+                %>
+	</td>
+	</tr>
+	</tbody>
+</table>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+<div class="row">
+  <div class="span12">
+	<div class="row">
+      		<div class="span6">
+
+      			<%= f.label "Nombre Recinto" %>
+      			<%= f.text_field "comercio.nombre", :value => @comercio.nombre, :readonly => true  %>
+
+      			<%= f.label "Descripcion" %>
+      			<%= f.text_field "comercio.descripcion", :value => @comercio.descripcion, :readonly => true  %>
+
+      			<%= f.label "Categoria" %>
+      			<%= f.text_field "comercio.rubro.nombre", :value => @comercio.rubro.nombre, :readonly => true  %>
+
+			<%= f.label "Region" %>
+                        <%= f.text_field "comercio.region", :value => @comercio.region.nombre, :readonly => true  %>
+
+                        <%= f.label "Ciudad" %>
+                        <%= f.text_field "comercio.ciudad", :value => @comercio.ciudad.nombre, :readonly => true  %>
+
+		</div>
+      		<div class="span6">
+			<%= f.label "Direccion" %>
+			<%= f.text_field "comercio.direccion", :value => @comercio.direccion, :readonly => true  %>
+
+ 			<%= f.label "Telefono" %>
+                        <%= f.text_field "comercio.telefono", :value => @comercio.telefono, :readonly => true  %>
+
+ 			<%= f.label "Email" %>
+                        <%= f.text_field "comercio.email", :value => @comercio.email, :readonly => true  %>
+		
+			<%= f.label "Recursos Disponibles - Selecciona tu opcion", :class => 'label_reserva' %>
+                        <%= select('reserva_id','id',@reservasDisponiblesByRecurso.map{|u|[u.recurso.nombre + " - Precio : $" +  u.recurso.precio + " - Reserva : $" + u.recurso.precioReserva , u.recurso.id]}, {}, :class => 'select_reserva')%>
+		
+
+		</div>
+    	</div>
+	<div class="row">
+		<div class="span12">
+			<%= f.submit "Reservar", class: "btn btn-large btn-primary" %>
+		</div>
+	</div>
+  </div>
+</div>
 <% end %>
 
 
 
 
-  <%= select('selected_payment','id',@reservasDisponiblesByRecurso.map{|u|[u.recurso.nombre + u.descripcion, u.descripcion]})%>
 
 
 
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+$('#featured').orbit({
+animation: 'fade',                  // fade, horizontal-slide, vertical-slide, horizontal-push
+  animationSpeed: 800,                // how fast animtions are
+  timer: true,                        // true or false to have the timer
+  resetTimerOnClick: false,           // true resets the timer instead of pausing slideshow progress
+  advanceSpeed: 4000,                 // if timer is enabled, time between transitions
+  pauseOnHover: false,                // if you hover pauses the slider
+  startClockOnMouseOut: false,        // if clock should start on MouseOut
+  startClockOnMouseOutAfter: 1000,    // how long after MouseOut should the timer start again
+  directionalNav: true,               // manual advancing directional navs
+  captions: true,                     // do you want captions?
+  captionAnimation: 'fade',           // fade, slideOpen, none
+  captionAnimationSpeed: 800,         // if so how quickly should they animate in
+  bullets: false,                     // true or false to activate the bullet navigation
+  bulletThumbs: false,                // thumbnails for the bullets
+  bulletThumbLocation: '',            // location from this file where thumbs will be
+  afterSlideChange: function(){},     // empty function
+  fluid: true                         // or set a aspect ratio for content slides (ex: '4x3')
+});
+</script>

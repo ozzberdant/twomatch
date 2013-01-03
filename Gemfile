@@ -27,6 +27,9 @@ group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
+    # Add these gems
+  gem 'compass-rails'
+  gem 'zurb-foundation'
 end
 
 gem "jquery_datepicker"
